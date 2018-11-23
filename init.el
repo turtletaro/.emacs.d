@@ -44,13 +44,26 @@
   (interactive)
   (find-file "~/.spacemacs"))
 
+(defun maybe-require-package (package &optional min-version no-refresh)
+  "Try to install PACKAGE, and return non-nil if successful.
+In the event of failure, return nil and print a warning message.
+Optionally require MIN-VERSION.  If NO-REFRESH is non-nil, the
+available package lists will not be re-downloaded in order to
+locate PACKAGE."
+  (condition-case err
+      (require-package package min-version no-refresh)
+    (error
+     (message "Couldn't install optional package `%s': %S" package err)
+     nil)))
+
+
+
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'init-packages)
 (require 'init-ui)
 (require 'init-better-defaults)
-(require 'init-python)
-;;(require 'init-org)
-;;(require 'init-keybindings)
+
+(require 'init-keybindings)
 
 ;;
 (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
