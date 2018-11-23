@@ -8,18 +8,8 @@
       )
 
 (require 'cl)
-(require 'elpy)
-(elpy-enable)
-(setq elpy-rpc-python-command "/anaconda3/envs/python35/bin/python3")
-(setq python-shell-interpreter "/anaconda3/envs/python35/bin/ipython3")
-(setq pyvenv-virtualenvwrapper-python "/anaconda3/envs/python35/bin/python3")
 
 
-(add-hook 'after-init-hook #'global-flycheck-mode);全局开启
-                                      
-(when (require 'flycheck nil t)
-  (setq elpy-modules(delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 
 (provide 'init-packages)

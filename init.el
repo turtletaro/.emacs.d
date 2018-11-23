@@ -48,6 +48,7 @@
 (require 'init-packages)
 (require 'init-ui)
 (require 'init-better-defaults)
+(require 'init-python)
 ;;(require 'init-org)
 ;;(require 'init-keybindings)
 
@@ -55,3 +56,5 @@
 (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 (load-file custom-file)
 (load "init-packages")
+
+
